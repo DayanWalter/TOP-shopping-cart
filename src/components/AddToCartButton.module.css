@@ -1,0 +1,23 @@
+.addToCartButton button {
+  /* DELETE! */
+  /* DELETE! */
+  color: #ffffff;
+  text-align: center;
+  transition: all 0.2s;
+
+  background-color: rgb(255, 147, 147);
+  border: none;
+  font-size: 24px;
+  border-radius: 5px;
+  width: 150px;
+  height: 50px;
+}
+.addToCartButton button:hover {
+  color: #000000;
+  background-color: #ffffff;
+  border: 1px solid black;
+  cursor: pointer;
+}
+.addToCartButton button:active {
+  scale: 0.98;
+}

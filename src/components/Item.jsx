@@ -1,3 +1,4 @@
+import AddToCartButton from './AddToCartButton';
 import DataFetch from './DataFetch';
 import styles from './Item.module.css';
 //1400*700
@@ -29,7 +30,7 @@ export default function Item() {
 
                 <button>+</button>
               </div>
-              <button className={styles.add}>Add to cart</button>
+              <AddToCartButton />
             </div>
           </div>
           <div className={styles.right}>
