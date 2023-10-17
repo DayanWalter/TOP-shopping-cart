@@ -1,0 +1,51 @@
+.site {
+  font-family: Roboto;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 75px;
+  padding: 0px 15px;
+}
+.logo {
+  font-size: 32px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.navigation {
+  display: flex;
+  gap: 100px;
+  font-size: 28px;
+}
+.cart {
+  width: 150px;
+}
+.main {
+  flex: 1;
+  /* background-color: coral; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mainContent {
+  /* border: 1px solid black; */
+  width: 1400px;
+  height: 700px;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.footer {
+  height: 50px;
+  background-color: rgb(104, 104, 104);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
