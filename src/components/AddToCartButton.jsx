@@ -1,9 +1,9 @@
 import styles from './AddToCartButton.module.css';
 
-export default function AddToCartButton() {
+export default function AddToCartButton({ amount, addOrder }) {
   return (
     <div className={styles.addToCartButton}>
-      <button>Add to cart</button>
+      <button onClick={addOrder}>Add to cart{amount}</button>
     </div>
   );
 }

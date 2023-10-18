@@ -8,8 +8,24 @@ import Shop from './Shop';
 import Item from './Item';
 import ShoppingCart from './ShoppingCart';
 import { Outlet, Link } from 'react-router-dom';
+import { useRef, useState } from 'react';
 
 export default function Root() {
+  const [isOpen, setIsOpen] = useState(false);
+  const modalRef = useRef();
+
+  const openModal = () => {
+    setIsOpen(true);
+  };
+  const closeModal = () => {
+    setIsOpen(false);
+  };
+  const handleOverlayClick = (e) => {
+    if (e.target === modalRef.current) {
+      closeModal();
+    }
+  };
+
   return (
     <div className={styles.site}>
       <header className={styles.header}>
@@ -36,6 +52,7 @@ export default function Root() {
             path={mdiShoppingOutline}
             size="
           48px"
+            onClick={openModal}
           />
         </div>
       </header>
@@ -48,7 +65,16 @@ export default function Root() {
         <p>Copyright by SynthCyrax</p>
         <i className="devicon-github-original colored"></i>
       </footer>
-      <section>{/* <ShoppingCart /> */}</section>
+      <section>
+        {isOpen && (
+          <>
+            <ShoppingCart
+              modalRef={modalRef}
+              handleOverlayClick={handleOverlayClick}
+            />
+          </>
+        )}
+      </section>
     </div>
   );
 }

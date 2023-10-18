@@ -30,6 +30,20 @@ export default function Item() {
       }
     });
   }
+  const [order, setOrder] = useState({
+    item: '',
+    amount: '',
+    price: '',
+  });
+
+  function handleSetOrder() {
+    console.log(order);
+    return setOrder({
+      item: data[itemId].title,
+      amount: amount,
+      price: data[itemId].price,
+    });
+  }
 
   return (
     <>
@@ -52,7 +66,7 @@ export default function Item() {
                 increment={handleIncrement}
                 decrement={handleDecrement}
               />
-              <AddToCartButton amount={amount} />
+              <AddToCartButton amount={amount} addOrder={handleSetOrder} />
             </div>
           </div>
           <div className={styles.right}>
