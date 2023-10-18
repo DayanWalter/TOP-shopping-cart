@@ -1,4 +1,5 @@
 import AddToCartButton from './AddToCartButton';
+import ChangeAmount from './ChangeAmount';
 import DataFetch from './DataFetch';
 import styles from './Item.module.css';
 //1400*700
@@ -24,12 +25,7 @@ export default function Item() {
             {console.log(data)}
             <h2>{data[0].description}</h2>
             <div className={styles.button}>
-              <div className={styles.incrementDecrement}>
-                <h3>5</h3>
-                <button>-</button>
-
-                <button>+</button>
-              </div>
+              <ChangeAmount />
               <AddToCartButton />
             </div>
           </div>
