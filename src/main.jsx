@@ -29,7 +29,7 @@ const router = createBrowserRouter([
       {
         path: '/item/:id',
         element: <Item />,
-        loader({ params, request }) {
+        loader({ params }) {
           return params;
         },
       },

@@ -3,6 +3,7 @@ import AddToCartButton from './AddToCartButton';
 import ChangeAmount from './ChangeAmount';
 import DataFetch from './DataFetch';
 import styles from './Item.module.css';
+import { useState } from 'react';
 //1400*700
 export default function Item() {
   const { loading, data, error } = DataFetch(
@@ -10,7 +11,25 @@ export default function Item() {
   );
   const loaderData = useLoaderData();
 
-  console.log(loaderData.id);
+  const itemId = loaderData.id - 1;
+
+  const [amount, setAmount] = useState(0);
+
+  function handleIncrement() {
+    setAmount((prevAmount) => {
+      return (prevAmount += 1);
+    });
+  }
+
+  function handleDecrement() {
+    setAmount((prevAmount) => {
+      if (prevAmount > 0) {
+        return (prevAmount -= 1);
+      } else {
+        return (prevAmount = 0);
+      }
+    });
+  }
 
   return (
     <>
@@ -22,22 +41,22 @@ export default function Item() {
       {data && (
         <div className={styles.item}>
           <div className={styles.left}>
-            <img
-              src={data[loaderData.id - 1].image}
-              alt=""
-              className={styles.image}
-            />
+            <img src={data[itemId].image} alt="" className={styles.image} />
           </div>
           <div className={styles.middle}>
-            <h1>{data[loaderData.id - 1].title}</h1>
-            <h2>{data[loaderData.id - 1].description}</h2>
+            <h1>{data[itemId].title}</h1>
+            <h2>{data[itemId].description}</h2>
             <div className={styles.button}>
-              <ChangeAmount />
-              <AddToCartButton />
+              <ChangeAmount
+                amount={amount}
+                increment={handleIncrement}
+                decrement={handleDecrement}
+              />
+              <AddToCartButton amount={amount} />
             </div>
           </div>
           <div className={styles.right}>
-            <p>$ {data[loaderData.id - 1].price.toFixed(2)}</p>
+            <p>$ {data[itemId].price.toFixed(2)}</p>
           </div>
         </div>
       )}
