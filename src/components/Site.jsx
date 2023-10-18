@@ -7,6 +7,7 @@ import App from './App';
 import Home from './Home';
 import Shop from './Shop';
 import Item from './Item';
+import ShoppingCart from './ShoppingCart';
 
 export default function Site() {
   return (
@@ -32,13 +33,14 @@ export default function Site() {
       </header>
       <main className={styles.main}>
         <div className={styles.mainContent}>
-          <Item />
+          <Home />
         </div>
       </main>
       <footer className={styles.footer}>
         <p>Copyright by SynthCyrax</p>
         <i className="devicon-github-original colored"></i>
       </footer>
+      <section>{/* <ShoppingCart /> */}</section>
     </div>
   );
 }
