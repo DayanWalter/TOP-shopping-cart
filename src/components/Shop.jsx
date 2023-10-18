@@ -18,7 +18,7 @@ export default function Shop() {
         <div className={styles.shop}>
           {data.map(({ title, id, image, price }) => (
             <li key={id}>
-              <Card title={title} image={image} price={price} />
+              <Card title={title} image={image} price={price} id={id} />
             </li>
           ))}
         </div>

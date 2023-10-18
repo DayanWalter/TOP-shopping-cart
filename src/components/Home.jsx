@@ -19,7 +19,6 @@ export default function Home() {
           <div className={styles.left}>
             <h1>Explore the World of Shopping with Us!</h1>
             <h2>Quality, Diversity, and Service Combined in Our Webshop</h2>
-            <button>Shop</button>
           </div>
           <div className={styles.right}>
             {data.map(({ title, id, image, price }) => (

@@ -1,15 +1,15 @@
-import styles from './Site.module.css';
+import styles from './Root.module.css';
 import Icon from '@mdi/react';
 import { mdiShoppingOutline } from '@mdi/js';
 
 import { mdiBat } from '@mdi/js';
-import App from './App';
 import Home from './Home';
 import Shop from './Shop';
 import Item from './Item';
 import ShoppingCart from './ShoppingCart';
+import { Outlet, Link } from 'react-router-dom';
 
-export default function Site() {
+export default function Root() {
   return (
     <div className={styles.site}>
       <header className={styles.header}>
@@ -19,9 +19,17 @@ export default function Site() {
           <p>EveryThing</p>
         </div>
         <div className={styles.navigation}>
-          <p>Home</p>
-          <p>Shop</p>
-          <p>Contact</p>
+          <p>
+            <Link to={`/home`}>Home</Link>
+          </p>
+          <p>
+            {' '}
+            <Link to={`/shop`}>Shop</Link>
+          </p>
+          <p>
+            {' '}
+            <Link to={`/contact`}>Contact</Link>
+          </p>
         </div>
         <div className={styles.cart}>
           <Icon
@@ -33,7 +41,7 @@ export default function Site() {
       </header>
       <main className={styles.main}>
         <div className={styles.mainContent}>
-          <Home />
+          <Outlet />
         </div>
       </main>
       <footer className={styles.footer}>
