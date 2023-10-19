@@ -1,27 +1,11 @@
-import { useState } from 'react';
 import styles from './ShoppingCart.module.css';
 
-export default function ShoppingCart({ modalRef, handleOverlayClick }) {
-  const exampleCart = [
-    {
-      id: 3,
-      amount: 2,
-      item: 'Mens Cotton Jacket',
-      price: 55.99,
-    },
-    {
-      id: 2,
-      amount: 5,
-      item: 'Mens Casual Premium Slim Fit T-Shirts ',
-      price: 22.3,
-    },
-  ];
-
-  const [cart, setCart] = useState(exampleCart);
-
-  function handleRemoveItem(itemId) {
-    return setCart(cart.filter((e) => e.id !== itemId));
-  }
+export default function ShoppingCart({
+  modalRef,
+  handleOverlayClick,
+  cart,
+  handleRemoveItem,
+}) {
   return (
     <>
       <div
@@ -42,7 +26,7 @@ export default function ShoppingCart({ modalRef, handleOverlayClick }) {
               </div>
               <div className={styles.priceDelete}>
                 <p>$ {(price * amount).toFixed(2)}</p>
-                <button onClick={() => console.log(id)}>Remove</button>
+                <button onClick={() => handleRemoveItem(id)}>Remove</button>
               </div>
             </li>
           ))}

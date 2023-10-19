@@ -4,7 +4,11 @@ import ChangeAmount from './ChangeAmount';
 import DataFetch from './DataFetch';
 import styles from './Item.module.css';
 import { useState } from 'react';
+import { useOutletContext } from 'react-router-dom';
+
 //1400*700
+let nextId = 2;
+
 export default function Item() {
   const { loading, data, error } = DataFetch(
     'https://fakestoreapi.com/products?limit=4'
@@ -30,23 +34,24 @@ export default function Item() {
       }
     });
   }
-  const [order, setOrder] = useState({
-    item: '',
-    amount: '',
-    price: '',
-  });
+
+  const [cart, setCart] = useOutletContext();
 
   function handleSetOrder() {
-    console.log(order);
-    return setOrder({
-      item: data[itemId].title,
-      amount: amount,
-      price: data[itemId].price,
-    });
+    return setCart([
+      ...cart,
+      {
+        id: nextId++,
+        item: data[itemId].title,
+        amount: amount,
+        price: data[itemId].price,
+      },
+    ]);
   }
 
   return (
     <>
+      {console.log(cart)}
       {loading && <div>A moment please...</div>}
 
       {error && (

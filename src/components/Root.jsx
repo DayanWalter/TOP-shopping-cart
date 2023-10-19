@@ -10,6 +10,21 @@ import ShoppingCart from './ShoppingCart';
 import { Outlet, Link } from 'react-router-dom';
 import { useRef, useState } from 'react';
 
+const exampleCart = [
+  {
+    id: 0,
+    amount: 2,
+    item: 'Mens Cotton Jacket',
+    price: 55.99,
+  },
+  {
+    id: 1,
+    amount: 5,
+    item: 'Mens Casual Premium Slim Fit T-Shirts ',
+    price: 22.3,
+  },
+];
+
 export default function Root() {
   // CHANGE!!!
   const [isOpen, setIsOpen] = useState(true);
@@ -27,7 +42,12 @@ export default function Root() {
       closeModal();
     }
   };
-  const [cart, setCart] = useState([]);
+
+  const [cart, setCart] = useState(exampleCart);
+
+  function handleRemoveItem(itemId) {
+    return setCart(cart.filter((e) => e.id !== itemId));
+  }
 
   return (
     <div className={styles.site}>
@@ -61,7 +81,7 @@ export default function Root() {
       </header>
       <main className={styles.main}>
         <div className={styles.mainContent}>
-          <Outlet />
+          <Outlet context={[cart, setCart]} />
         </div>
       </main>
       <footer className={styles.footer}>
@@ -74,6 +94,8 @@ export default function Root() {
             <ShoppingCart
               modalRef={modalRef}
               handleOverlayClick={handleOverlayClick}
+              cart={cart}
+              handleRemoveItem={handleRemoveItem}
             />
           </>
         )}
