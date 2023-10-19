@@ -10,24 +10,24 @@ import ShoppingCart from './ShoppingCart';
 import { Outlet, Link } from 'react-router-dom';
 import { useRef, useState } from 'react';
 
-const exampleCart = [
-  {
-    id: 0,
-    amount: 2,
-    item: 'Mens Cotton Jacket',
-    price: 55.99,
-  },
-  {
-    id: 1,
-    amount: 5,
-    item: 'Mens Casual Premium Slim Fit T-Shirts ',
-    price: 22.3,
-  },
-];
+// const exampleCart = [
+//   {
+//     id: 0,
+//     amount: 2,
+//     item: 'Mens Cotton Jacket',
+//     price: 55.99,
+//   },
+//   {
+//     id: 1,
+//     amount: 5,
+//     item: 'Mens Casual Premium Slim Fit T-Shirts ',
+//     price: 22.3,
+//   },
+// ];
 
 export default function Root() {
   // CHANGE!!!
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   // CHANGE!!!
   const modalRef = useRef();
 
@@ -43,7 +43,7 @@ export default function Root() {
     }
   };
 
-  const [cart, setCart] = useState(exampleCart);
+  const [cart, setCart] = useState([]);
 
   function handleRemoveItem(itemId) {
     return setCart(cart.filter((e) => e.id !== itemId));
@@ -71,6 +71,8 @@ export default function Root() {
           </p>
         </div>
         <div className={styles.cart}>
+          <p className={styles.cartlength}>{cart.length}</p>
+
           <Icon
             path={mdiShoppingOutline}
             size="

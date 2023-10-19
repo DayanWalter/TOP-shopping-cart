@@ -45,13 +45,13 @@ export default function Item() {
         item: data[itemId].title,
         amount: amount,
         price: data[itemId].price,
+        image: data[itemId].image,
       },
     ]);
   }
 
   return (
     <>
-      {console.log(cart)}
       {loading && <div>A moment please...</div>}
 
       {error && (

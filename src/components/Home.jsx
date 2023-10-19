@@ -23,7 +23,7 @@ export default function Home() {
           <div className={styles.right}>
             {data.map(({ title, id, image, price }) => (
               <li key={id}>
-                <Card title={title} image={image} price={price} />
+                <Card title={title} image={image} price={price} id={id} />
               </li>
             ))}
           </div>
