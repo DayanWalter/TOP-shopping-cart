@@ -13,8 +13,50 @@
   top: 0;
   right: 0;
   background-color: white;
-  border: 1px solid black;
-  width: 300px;
+  /* border: 1px solid black; */
+  width: 500px;
   height: 100vh;
   z-index: 2;
+  padding: 15px;
+}
+.content h1 {
+  font-size: 42px;
+  text-align: center;
+  margin-bottom: 15px;
+}
+.item {
+  display: flex;
+  padding: 15px;
+  gap: 15px;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  background-color: rgba(240, 248, 255, 0.3);
+}
+.item:hover {
+  cursor: pointer;
+  background-color: aliceblue;
+}
+.image {
+  border: 1px solid black;
+  border-radius: 5px;
+  object-fit: contain;
+  width: 100px;
+  height: 100px;
+  background-color: aqua;
+}
+.nameAmount {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* background-color: aquamarine; */
+  flex: 1;
+
+  /* width: 200px; */
+}
+.priceDelete {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* background-color: bisque; */
 }

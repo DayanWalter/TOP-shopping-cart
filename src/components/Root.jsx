@@ -11,7 +11,9 @@ import { Outlet, Link } from 'react-router-dom';
 import { useRef, useState } from 'react';
 
 export default function Root() {
-  const [isOpen, setIsOpen] = useState(false);
+  // CHANGE!!!
+  const [isOpen, setIsOpen] = useState(true);
+  // CHANGE!!!
   const modalRef = useRef();
 
   const openModal = () => {
@@ -25,6 +27,7 @@ export default function Root() {
       closeModal();
     }
   };
+  const [cart, setCart] = useState([]);
 
   return (
     <div className={styles.site}>
